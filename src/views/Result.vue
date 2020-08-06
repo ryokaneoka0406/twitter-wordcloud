@@ -2,9 +2,9 @@
   <b-container class="mt-3">
     <h3>好きなTwitterアカウントのツイートをワードクラウドにします</h3>
     <b-container>
-      <div>
-        <div class="mt-3">Debug: {{ username }}</div>
-      </div>
+      <p>こんなツイートをしてるみたい</p>
+      <div class="mt-3">Debug: {{ username }}</div>
+      <img src="../assets/testimg/tomneko12151303_TP_V4.jpg" />
     </b-container>
   </b-container>
 </template>
