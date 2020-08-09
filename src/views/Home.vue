@@ -4,7 +4,7 @@
     <b-container>
       <p>Twitterアカウント名を入力</p>
       <b-form-input v-model.trim="username" placeholder="@以降のユーザー名" :state="validation"></b-form-input>
-      <b-form-invalid-feedback v-if="error">{{error}}</b-form-invalid-feedback>
+      <b-form-invalid-feedback v-if="errMessage">{{errMessage}}</b-form-invalid-feedback>
       <b-button class="mt-3 float-right" variant="primary" @click="sendDataToResult">送信</b-button>
     </b-container>
   </b-container>
@@ -16,7 +16,7 @@ export default {
     return {
       username: "",
       validation: null,
-      error: null,
+      errMessage: null,
     };
   },
   watch: {
@@ -27,10 +27,10 @@ export default {
         this.validation = true;
       } else if (val === "") {
         this.validation = false;
-        this.error = "ユーザー名は必須です";
+        this.errMessage = "ユーザー名は必須です";
       } else if (!re.test(val)) {
         this.validation = false;
-        this.error = "Twitterアカウントで使えない文字が入っています";
+        this.errMessage = "Twitterアカウントで使えない文字が入っています";
       }
     },
   },
@@ -44,7 +44,7 @@ export default {
       } else {
         // 入力せずに送信した場合
         this.validation = false;
-        this.error = "ユーザー名は必須です";
+        this.errMessage = "ユーザー名は必須です";
       }
     },
   },

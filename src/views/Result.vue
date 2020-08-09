@@ -3,8 +3,12 @@
     <h3>好きなTwitterアカウントのツイートをワードクラウドにします</h3>
     <b-container>
       <p>こんなツイートをしてるみたい</p>
+      <div v-if="loading">読み込み中...</div>
+      <img :src="imgUrl" />
+      <div v-if="imgUrl">
+        <a :href="tweetLink" target="_blank">test</a>
+      </div>
       <div class="mt-3">Debug: {{ username }}</div>
-      <img src="../assets/testimg/tomneko12151303_TP_V4.jpg" />
     </b-container>
   </b-container>
 </template>
@@ -17,14 +21,22 @@ export default {
   data() {
     return {
       loading: false,
-      img: "",
+      imgUrl: "",
+      tweetLink: "https://twitter.com/intent/tweet?text=",
     };
   },
-  created: {
+  created() {
+    this.sendDataToAPI();
+  },
+  methods: {
     sendDataToAPI() {
       this.loading = true;
+      setTimeout(() => {
+        this.loading = false;
+        this.imgUrl = "https://placehold.jp/320x240.png";
+        this.tweetLink = this.tweetLink + this.imgUrl;
+      }, 3000);
     },
   },
-  methods: {},
 };
 </script>
