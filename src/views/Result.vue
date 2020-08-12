@@ -4,7 +4,7 @@
     <b-container>
       <p>こんなツイートをしてるみたい</p>
       <div v-if="loading">読み込み中...</div>
-      <img :src="imgUrl" />
+      <b-img fluid :src="imgUrl" />
       <div v-if="imgUrl">
         <a :href="tweetLink" target="_blank">test</a>
       </div>
@@ -33,9 +33,9 @@ export default {
       this.loading = true;
       setTimeout(() => {
         this.loading = false;
-        this.imgUrl = "https://placehold.jp/320x240.png";
+        this.imgUrl = require("../assets/testimg/Figure_2.png");
         this.tweetLink = this.tweetLink + this.imgUrl;
-      }, 3000);
+      }, 1000);
     },
   },
 };
