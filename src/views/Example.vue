@@ -5,11 +5,21 @@
       <p>
         <a href="https://mobile.twitter.com/ryopenguin">作者のTwitter</a>
       </p>
-      <img src="../assets/testimg/tomneko12151303_TP_V4.jpg" alt />
+      <b-img fluid :src="testUrl" />
       <p class="mt-3">
         <a href="https://mobile.twitter.com/jack">Jack Dorsey</a>
       </p>
-      <img src="../assets/testimg/tomneko12151303_TP_V4.jpg" alt />
+      <b-img fluid :src="testUrl" />
     </b-container>
   </b-container>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      testUrl: require("../assets/testimg/Figure_2.png"),
+    };
+  },
+};
+</script>
