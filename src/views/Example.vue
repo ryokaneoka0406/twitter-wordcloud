@@ -6,10 +6,6 @@
         <a href="https://mobile.twitter.com/ryopenguin">作者のTwitter</a>
       </p>
       <b-img fluid :src="testUrl" />
-      <p class="mt-3">
-        <a href="https://mobile.twitter.com/jack">Jack Dorsey</a>
-      </p>
-      <b-img fluid :src="testUrl" />
     </b-container>
   </b-container>
 </template>

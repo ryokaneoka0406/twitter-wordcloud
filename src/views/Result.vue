@@ -2,27 +2,23 @@
   <b-container class="mt-3">
     <h3>好きなTwitterアカウントのツイートをワードクラウドにします</h3>
     <b-container>
-      <p>こんなツイートをしてるみたい</p>
-      <div v-if="loading">読み込み中...</div>
+      <p v-if="loading">読み込み中...(数十秒かかるので気長にまってちょ。。)</p>
+      <p v-if="imgUrl">こんなツイートをしてるみたい</p>
       <b-img fluid :src="imgUrl" />
-      <div v-if="imgUrl">
-        <a :href="tweetLink" target="_blank">test</a>
-      </div>
-      <div class="mt-3">Debug: {{ username }}</div>
     </b-container>
   </b-container>
 </template>
 
 <script>
+import axios from "axios";
 export default {
   props: {
     username: String,
   },
   data() {
     return {
-      loading: false,
+      loading: true,
       imgUrl: "",
-      tweetLink: "https://twitter.com/intent/tweet?text=",
     };
   },
   created() {
@@ -30,12 +26,15 @@ export default {
   },
   methods: {
     sendDataToAPI() {
-      this.loading = true;
-      setTimeout(() => {
-        this.loading = false;
-        this.imgUrl = require("../assets/testimg/Figure_2.png");
-        this.tweetLink = this.tweetLink + this.imgUrl;
-      }, 1000);
+      axios
+        .get(
+          "https://us-central1-ryopenguin-9f2e7.cloudfunctions.net/tweetcloud?screen_name=" +
+            this.username
+        )
+        .then((response) => {
+          this.imgUrl = response["data"]["img"];
+          this.loading = false;
+        });
     },
   },
 };
