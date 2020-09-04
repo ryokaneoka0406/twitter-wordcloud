@@ -12,6 +12,7 @@
       <li>Vue Router</li>
       <li>axios</li>
       <li>Bootstrap-vue</li>
+      <li>Vue-loading</li>
       <li>Netlify</li>
       <li>Python</li>
       <li>Janome</li>

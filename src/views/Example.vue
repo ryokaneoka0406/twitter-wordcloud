@@ -14,7 +14,7 @@
 export default {
   data() {
     return {
-      testUrl: require("../assets/testimg/Figure_2.png"),
+      testUrl: require("../assets/testimg/ryopenguin_wordcloud.png"),
     };
   },
 };
