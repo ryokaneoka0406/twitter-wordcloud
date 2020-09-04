@@ -1,6 +1,6 @@
 <template>
   <b-container class="mt-3">
-    <h3>好きなTwitterアカウントのツイートをワードクラウドにします</h3>
+    <h3>好きなアカウントのツイートをワードクラウドに</h3>
     <b-container>
       <p>Twitterアカウント名を入力</p>
       <b-form-input v-model.trim="username" placeholder="@以降のユーザー名" :state="validation"></b-form-input>

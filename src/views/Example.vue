@@ -14,7 +14,8 @@
 export default {
   data() {
     return {
-      testUrl: require("../assets/testimg/ryopenguin_wordcloud.png"),
+      testUrl:
+        "https://storage.googleapis.com/tweet-cloud/ryopenguin_wordcloud.png",
     };
   },
 };
